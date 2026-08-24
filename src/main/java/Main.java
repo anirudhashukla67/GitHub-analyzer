@@ -30,28 +30,7 @@ public class Main {
         User user = mapper.readValue(response.body(),User.class);
         return user;     
     }
-    public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
-
-        String username=sc.nextLine();
-        User user=getuserinfo(username);
-        List<Repository> repositories=getRepositories(username);
-        System.out.println("-********************** User information **********************");
-        System.out.println("Usere login: "+user.login);
-        System.out.println("name: "+user.name);
-        System.out.println("followers: "+user.followers);
-        System.out.println("no of repos"+user.publicRepos);
-        System.out.println("-*********************** Repository Information **********************");
-        for(Repository repo1:repositories){ 
-            System.out.println("----------------------------------------------------------------------------");
-            System.out.println("Repository name : "+repo1.name);                                                                 
-            System.out.println("Repository description : "+repo1.description);
-            System.out.println("language used : "+repo1.language);
-            System.out.println("number of stars : "+repo1.stars);
-            System.out.println("number of forks : "+repo1.forks);
-            System.out.println("----------------------------------------------------------------------------");
-
-        }
+    public static void analysis(List<Repository> repositories)throws Exception{
         int maxStars=0;
         String maxRepo="";
         int totalStars=0;
@@ -78,7 +57,7 @@ public class Main {
                 countMaxlang=entry.getValue();
                 maxLang=entry.getKey();
             }
-
+            
         }
         repositories.sort((a,b)->b.stars-a.stars);
         double avgStars=0;
@@ -87,14 +66,36 @@ public class Main {
         }else{
             avgStars=(double)totalStars/totalRepositories;
         }
-        System.out.println("-********************** Profile Analysis **********************");
+        System.out.println("********************** Profile Analysis **********************");
         System.out.println(maxRepo+"is the most starred repo of the user with "+maxStars+" stars");
         System.out.println("The language most used by the user is "+maxLang+" and number of times it used is : "+countMaxlang);
         System.out.println("Numbe of Repositories are : "+totalRepositories+"\nTotal stars across all repositories : "+totalStars);
         System.out.println("Average stars : "+avgStars);
-        for(Repository repo:repositories){
-            System.out.println(repo.name+"-->"+ repo.stars);
+        System.out.println("\n*********************** Repository Information **********************");
+        System.out.println("\nTOP 5 REPOSITORIES BY STARS\n");
+        for(int i =0;i<Math.min(5, repositories.size());i++){ 
+            Repository repo=repositories.get(i);
+            System.out.println((i+1+"."+repo.name+"-->"+repo.stars));
         }
+
+    }
+    public static void displayuserinfo(User user){
+        System.out.println("-********************** User information **********************");
+        System.out.println("Usere login: "+user.login);
+        System.out.println("name: "+user.name);
+        System.out.println("followers: "+user.followers);
+        System.out.println("no of repos"+user.publicRepos);
+
+    }
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        String username=sc.nextLine();
+        User user = getuserinfo(username);
+        List<Repository> repositories = getRepositories(username);
+        displayuserinfo(user);
+        analysis(repositories);
+
    
 }
     }
