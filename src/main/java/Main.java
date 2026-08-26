@@ -110,6 +110,7 @@ public class Main {
                     running=false; 
                     break;   
                 default:
+                    System.out.println("Invalid choice !\n Enter choice : ");
                     break;
             }
         }
@@ -125,7 +126,7 @@ public class Main {
             Thread.currentThread().interrupt();
             System.out.println("The request was interrupted .");
         }
-    }
+    sc.close();}
 }
         
 
