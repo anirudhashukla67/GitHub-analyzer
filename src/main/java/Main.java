@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
@@ -113,9 +114,16 @@ public class Main {
             }
         }
         }
-        catch(Exception e){
+        catch(GitHubApiException e){
             System.out.println(e.getMessage());
 
+        }
+        catch(IOException e){
+            System.out.println("Network Error ! Check your network connection.");
+        }
+        catch(InterruptedException e){
+            Thread.currentThread().interrupt();
+            System.out.println("The request was interrupted .");
         }
     }
 }
