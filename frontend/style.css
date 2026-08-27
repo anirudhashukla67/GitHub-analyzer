@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+.search-container{
+    padding: 20px;
+    margin: 30px;
+    display: flex;
+    gap: 10px;
+}
+.search-container input{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    background-color: #161b22;
+    color: white;
+}.search-container button{
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+}
+.stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.stat-card{
+    background-color:#161b22;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+}
+.user-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.repository-section{
+    
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+}
+.user-stat {
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+}
+h2{
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.title{
+    margin-bottom: 20px;
+}
+.repository-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.repository-section th,
+.repository-section td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #30363d;
+}
+
+.repository-section th {
+    color: #8b949e;
+}.repository-section tbody tr:hover {
+    background-color: #21262d;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Analyzer</title>
+    <link rel="Stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="title">GitHub Analyzer</h1>
+    <div class="search-container">
+        <p id="loading-message"></p>
+        <p id="error-message"></p>
+        <input type="text" id="username-input" placeholder="Enter Github Username">
+        <button id ="search-button">Search</button>
+    </div>
+    <h2>User Information</h2>
+
+<div class="user-card">
+    <p class ="user-stat" id="user-login">Username: </p>
+    <p class ="user-stat" id ="user-name">Name: </p>
+    <p class ="user-stat" id ="user-followers">Followers: </p>
+    <p class ="user-stat" id ="user-repos">Repositories: </p>
+</div>
+
+<h2>Repository Analysis</h2>
+
+<div class="stats-container">
+    <p class ="stat-card">Total Stars: </p>
+    <p class ="stat-card">Total Forks: </p>
+    <p class ="stat-card">Average Stars: </p>
+    <p class ="stat-card">Most Used Language: </p>
+</div>
+
+<h2>Repositories</h2>
+
+<div class="repository-section">
+    <table>
+        <thead>
+            <tr>
+                <th>Repository</th>
+                <th>Language</th>
+                <th>Stars</th>
+                <th>Forks</th>
+            </tr>
+        </thead>
+
+        <tbody id="repository-body">
+        
+        </tbody>
+    </table>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
